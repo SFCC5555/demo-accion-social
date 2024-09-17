@@ -1,0 +1,17 @@
+// Importing a Google Fonts font
+@import url('');
+
+// Importing base styles, components and utilities from Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Setting box-sizing, margin, and padding for all elements in the document
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Color and font variables defined in the :root selector
+:root {}
