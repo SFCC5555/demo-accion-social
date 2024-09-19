@@ -1,6 +1,10 @@
+import { Image } from "./Image";
+
 export interface Area {
   id: number;
-  attributes: {
-    name: string;
-  };
+  name: string;
+  summary: string;
+  color: string;
+  cover: Image;
+  banner: Image;
 }

@@ -15,10 +15,18 @@ const useFetch = <T>(endpoint: string): UseFetchResult<T> => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const locale = "es";
+
+  const sortByOrder = false;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:1337/api/${endpoint}`);
+        const response = await fetch(
+          `http://localhost:1337/api/${endpoint}?locale=${locale}&${
+            sortByOrder ? "sort=order:asc&" : ""
+          }populate=*`
+        );
         if (!response.ok) {
           throw new Error("Error fetching data");
         }
