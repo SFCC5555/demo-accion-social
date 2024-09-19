@@ -10,12 +10,12 @@ interface UseFetchResult<T> {
   error: string | null;
 }
 
-const useFetch = <T>(endpoint: string): UseFetchResult<T> => {
+const useFetch = <T>(endpoint: string, lan: string): UseFetchResult<T> => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const locale = "es";
+  const locale = lan;
 
   const sortByOrder = false;
 
@@ -40,7 +40,7 @@ const useFetch = <T>(endpoint: string): UseFetchResult<T> => {
     };
 
     fetchData();
-  }, [endpoint]);
+  }, [endpoint, lan]);
 
   return { data, loading, error };
 };

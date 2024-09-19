@@ -17,9 +17,10 @@ import TypesafeI18n from "./i18n/i18n-react";
 import { loadLocaleAsync } from "./i18n/i18n-util.async";
 
 function App() {
-  const { data } = useFetch<Area[]>("areas-de-actuacion");
+  console.log(navigator.language);
 
-  const [lan, setLan] = useState("en");
+  const [lan, setLan] = useState("es");
+  const { data } = useFetch<Area[]>("areas-de-actuacion", lan);
 
   const [wasLoaded, setWasLoaded] = useState(false);
 
@@ -27,14 +28,22 @@ function App() {
     loadLocaleAsync(lan).then(() => setWasLoaded(true));
   }, [lan]);
 
+  const toggleLan = () => {
+    setWasLoaded(false);
+    setLan((prevLan) => (prevLan === "es" ? "en" : "es"));
+  };
+
   if (!wasLoaded) return <div>Language Error</div>;
 
   return (
     <TypesafeI18n locale={lan}>
       <BrowserRouter>
         <NavBar />
+        <button onClick={toggleLan} className="bg-blue-500 p-5 border-2">
+          es-en
+        </button>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home lan={lan} />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           {data &&
             data.map((area) => (

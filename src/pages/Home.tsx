@@ -4,11 +4,11 @@ import { Entrevistas } from "../components/Entrevistas";
 import { ExperienciasDeBecados } from "../components/ExperienciasDeBecados";
 import { Newsletter } from "../components/Newsletter";
 
-const Home = () => {
+const Home = ({lan}) => {
   return (
     <main className="bg-white">
       <h1>BANNER HOME</h1>
-      <AreasDeActuacion />
+      <AreasDeActuacion lan={lan} />
       <p>DESCRIPCION</p>
       <ExperienciasDeBecados />
       <Newsletter />

@@ -2,8 +2,8 @@ import useFetch from "../hooks/useFetch";
 import { Area } from "../interfaces/Area";
 import { Card } from "./Card";
 
-const AreasDeActuacion: React.FC = () => {
-  const { data, loading, error } = useFetch<Area[]>("areas-de-actuacion");
+const AreasDeActuacion: React.FC = ({lan}) => {
+  const { data, loading, error } = useFetch<Area[]>("areas-de-actuacion", lan);
 
 
   if (loading) return <p>Cargando...</p>;
