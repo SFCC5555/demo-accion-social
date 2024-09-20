@@ -15,6 +15,7 @@ import {
 } from "typesafe-i18n/detectors";
 import TypesafeI18n from "./i18n/i18n-react";
 import { loadLocaleAsync } from "./i18n/i18n-util.async";
+import { DinamicAreaPage } from "./pages/DinamicAreaPage";
 
 function App() {
   console.log(navigator.language);
@@ -49,8 +50,8 @@ function App() {
             data.map((area) => (
               <Route
                 key={area.id}
-                path={`/${area.name.toLowerCase().replaceAll(" ", "-")}`}
-                element={<AreaPage area={area} />}
+                path={`/${area.slug}`}
+                element={<DinamicAreaPage area={area} />}
               />
             ))}
           <Route path="*" element={<NotFound />} />

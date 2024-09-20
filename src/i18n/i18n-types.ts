@@ -20,9 +20,9 @@ type RootTranslation = {
 	 */
 	HI: RequiredParams<'name'>
 	/**
-	 * d​o​g
+	 * S​o​c​i​a​l​ ​A​c​t​i​o​n
 	 */
-	DOG: string
+	TITLE: string
 }
 
 export type TranslationFunctions = {
@@ -31,9 +31,9 @@ export type TranslationFunctions = {
 	 */
 	HI: (arg: { name: unknown }) => LocalizedString
 	/**
-	 * dog
+	 * Social Action
 	 */
-	DOG: () => LocalizedString
+	TITLE: () => LocalizedString
 }
 
 export type Formatters = {}

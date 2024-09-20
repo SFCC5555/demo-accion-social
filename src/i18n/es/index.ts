@@ -1,8 +1,8 @@
 import type { BaseTranslation } from "../i18n-types";
 
 const es: BaseTranslation = {
-  HI: "Holas {name:string}!",
-  DOG: "perro"
+  HI: "Hola {name:string}!",
+  TITLE: "Acción Social"
 };
 
 export default es;

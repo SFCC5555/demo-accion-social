@@ -8,7 +8,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ area }) => {
   return (
     <Link
-      to={`/${area.name.toLowerCase().replaceAll(' ','-')}`}
+      to={`/${area.slug}`}
       className={`w-40 h-40 relative text-white font-semibold border-b-8 overflow-hidden`}
       style={{ borderColor: area.color }}
     >

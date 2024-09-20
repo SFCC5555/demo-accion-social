@@ -17,7 +17,7 @@ const useFetch = <T>(endpoint: string, lan: string): UseFetchResult<T> => {
 
   const locale = lan;
 
-  const sortByOrder = false;
+  const sortByOrder = true;
 
   useEffect(() => {
     const fetchData = async () => {
