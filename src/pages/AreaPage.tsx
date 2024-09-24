@@ -4,7 +4,6 @@ import { Banner } from "../components/Banner";
 import { Entrevistas } from "../components/Entrevistas";
 import { EntrevistasAnteriores } from "../components/EntrevistasAnteriores";
 import { InfograficosTematicos } from "../components/InfograficosTematicos";
-import { News } from "../components/News";
 import { Area } from "../interfaces/Area";
 
 interface AreaPageProps {

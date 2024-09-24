@@ -4,7 +4,7 @@ import { Entrevistas } from "../components/Entrevistas";
 import { ExperienciasDeBecados } from "../components/ExperienciasDeBecados";
 import { Newsletter } from "../components/Newsletter";
 
-const Home = ({lan}) => {
+const Home = ({ lan }) => {
   return (
     <main className="bg-white">
       <h1>BANNER HOME</h1>
