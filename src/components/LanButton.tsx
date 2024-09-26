@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { Locales } from "../i18n/i18n-types";
+import { Link } from "react-router-dom";
 
 interface LanButtonProps {
-  changeLan: (lan: string) => void;
-  lan: string;
+  changeLan: (lan: Locales) => void;
+  lan: Locales;
 }
 
 const LanButton: React.FC<LanButtonProps> = ({ changeLan, lan }) => {
-  const [lanMenuStatus, setLanMenuStatus] = useState(false);
-  const languages = ["es", "en"];
+  const [lanMenuStatus, setLanMenuStatus] = useState<boolean>(false);
+  const languages: Locales[] = ["es", "en"];
 
   return (
     <button
@@ -16,22 +18,16 @@ const LanButton: React.FC<LanButtonProps> = ({ changeLan, lan }) => {
     >
       language: {lan}
       {lanMenuStatus && (
-        <section className="w-full absolute bottom-0 left-0 translate-y-full bg-blue-500 border-2">
+        <section className="w-full absolute bottom-0 left-0 translate-y-full bg-blue-500 border-2 z-10">
           {languages.map((l) =>
             lan === l ? (
-              <div
-                key={l}
-                className={"opacity-50"}
-              >
+              <div key={l} className={"opacity-50"}>
                 {l}
               </div>
             ) : (
-              <div
-                key={l}
-                onClick={() => changeLan(l)}
-              >
+              <Link key={l} to={"/"} onClick={() => changeLan(l)}>
                 {l}
-              </div>
+              </Link>
             )
           )}
         </section>
