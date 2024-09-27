@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Locales } from "../i18n/i18n-types";
 
 interface FetchResult<T> {
   data: T;
@@ -10,12 +11,10 @@ interface UseFetchResult<T> {
   error: string | null;
 }
 
-const useFetch = <T>(endpoint: string, lan: string): UseFetchResult<T> => {
+const useFetch = <T>(endpoint: string, lan: Locales): UseFetchResult<T> => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
-  const locale = lan;
 
   const sortByOrder = true;
 
@@ -23,7 +22,7 @@ const useFetch = <T>(endpoint: string, lan: string): UseFetchResult<T> => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:1337/api/${endpoint}?locale=${locale}&${
+          `http://localhost:1337/api/${endpoint}?locale=${lan}&${
             sortByOrder ? "sort=order:asc&" : ""
           }populate=*`
         );

@@ -1,10 +1,11 @@
 import useFetch from "../hooks/useFetch";
+import { Locales } from "../i18n/i18n-types";
 import { Area } from "../interfaces/Area";
 import { Card } from "./Card";
 import { EditButton } from "./EditButton";
 
 interface AreasDeActuacionProps {
-  lan: string;
+  lan: Locales;
   editModeStatus: boolean;
 }
 

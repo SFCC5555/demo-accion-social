@@ -36,13 +36,16 @@ function App() {
   }, [lan]);
 
   const changeLan = (newLan: Locales) => {
-    console.log("LanTest: ", newLan);
     setWasLoaded(false);
     setLan(newLan);
   };
 
   const toggleMode = () => {
     setEditModeEstatus((prev) => !prev);
+  };
+
+  const desactiveEditMode = () => {
+    setEditModeEstatus(false);
   };
 
   if (!wasLoaded) return <div>Language Error</div>;
@@ -53,6 +56,7 @@ function App() {
         <NavBar
           changeLan={changeLan}
           toggleMode={toggleMode}
+          desactiveEditMode={desactiveEditMode}
           lan={lan}
           editModeStatus={editModeStatus}
         />
@@ -69,7 +73,11 @@ function App() {
           <Route
             path="/areas"
             element={
-              <Areas areas={data?data:[]} lan={lan} editModeStatus={editModeStatus} />
+              <Areas
+                areas={data ? data : []}
+                lan={lan}
+                editModeStatus={editModeStatus}
+              />
             }
           />
           <Route
@@ -92,7 +100,7 @@ function App() {
             ))}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
+        <Footer lan={lan} editModeStatus={editModeStatus} />
       </BrowserRouter>
     </TypesafeI18n>
   );
